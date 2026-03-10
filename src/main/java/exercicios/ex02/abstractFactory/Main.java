@@ -49,7 +49,6 @@ public class Main {
                 cepDestino,
                 valorPago
         );
-
         scanner.close();
     }
 }
