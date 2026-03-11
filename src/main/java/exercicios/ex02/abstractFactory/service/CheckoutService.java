@@ -27,6 +27,7 @@ public class CheckoutService {
                                 double valorPago) {
 
         double valorTotal = frete.calcularFrete(pesoKg, cepDestino);
+
         if (pagamento.Pagar(valorTotal, valorPago)){
             notaFiscal.emitirTotal(pedidosId, quantidade, valorTotal);
             System.out.println("Valor Pago: " + valorPago);
