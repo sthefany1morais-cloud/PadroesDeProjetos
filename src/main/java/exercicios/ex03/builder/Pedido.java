@@ -1,9 +1,6 @@
 package exercicios.ex03.builder;
 
-import exercicios.ex03.builder.enums.Entrega;
-import exercicios.ex03.builder.enums.FormaPagamento;
-import exercicios.ex03.builder.enums.Tamanho;
-import exercicios.ex03.builder.enums.Tipo;
+import exercicios.ex03.builder.enums.*;
 import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
@@ -19,6 +16,8 @@ public class Pedido {
     private String enderecoEntrega;
     private Float troco;
     private Float valorTotal;
+    private TipoMassa tipoMassa;
+    private TipoPao tipoPao;
 
     public Pedido(String cliente, List<Item> itens, List<String> adicionais, List<String> observacoes, FormaPagamento formaPagamento, Float cupomDesconto, Entrega entrega, String enderecoEntrega, Float troco, Float valorTotal) {
         this.cliente = cliente;
