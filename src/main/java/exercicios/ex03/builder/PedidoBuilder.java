@@ -63,7 +63,6 @@ public class PedidoBuilder {
             throw new IllegalArgumentException("O valor do cupom de desconto deve ser um valor positivo.");
         }
         this.cupomDesconto = cupomDesconto;
-        this.valorTotal-= cupomDesconto;
     }
 
     public void addEntrega(Entrega entrega) {
@@ -107,8 +106,12 @@ public class PedidoBuilder {
                 throw new IllegalArgumentException("O valor do troco só deve ser definido para pagamentos em dinheiro.");
             }
         }
-
         calcularValorTotal();
+
+        if (cupomDesconto != null) {
+            valorTotal -= cupomDesconto;
+        }
+
         return new Pedido(cliente, itens, adicionais, observacoes, formaPagamento, cupomDesconto, entrega, enderecoEntrega, troco, valorTotal);
     }
 }

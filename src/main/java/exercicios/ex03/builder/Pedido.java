@@ -31,4 +31,20 @@ public class Pedido {
         this.troco = troco;
         this.valorTotal = valorTotal;
     }
+
+    public void imprimirNotaFiscal() {
+        System.out.println("Cliente: " + cliente);
+        System.out.println("Itens:");
+        for (Item item : itens) {
+            System.out.println("- " + item.getPreco());
+        }
+        System.out.println("Adicionais: " + adicionais);
+        System.out.println("Observações: " + observacoes);
+        System.out.println("Forma de Pagamento: " + formaPagamento);
+        System.out.println("Cupom de Desconto: " + cupomDesconto);
+        System.out.println("Entrega: " + entrega);
+        System.out.println("Endereço de Entrega: " + enderecoEntrega);
+        System.out.println("Troco: " + troco);
+        System.out.println("Valor Total: " + valorTotal);
+    }
 }

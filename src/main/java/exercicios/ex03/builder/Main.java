@@ -56,5 +56,7 @@ public class Main {
         Pedido pedido = pedidoBuilder.build();
 
         System.out.println("Pedido criado com sucesso");
+
+        pedido.imprimirNotaFiscal();
     }
 }
