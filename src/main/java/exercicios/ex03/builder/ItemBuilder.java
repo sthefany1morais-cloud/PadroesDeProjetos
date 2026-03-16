@@ -13,28 +13,28 @@ public class ItemBuilder {
     private TipoMassa tipoMassa;
     private TipoPao tipoPao;
 
-    public void setNome(String nome) {
+    public void addNome(String nome) {
         if (nome == null || nome.isEmpty()) {
             throw new IllegalArgumentException("O nome do item não pode ser vazio.");
         }
         this.nome = nome;
     }
 
-    public void setTipo(Tipo tipo) {
+    public void addTipo(Tipo tipo) {
         if (tipo == null) {
             throw new IllegalArgumentException("O tipo do item deve ser especificado.");
         }
         this.tipo = tipo;
     }
 
-    public void setTamanho(Tamanho tamanho) {
+    public void addTamanho(Tamanho tamanho) {
         if (tamanho == null) {
             throw new IllegalArgumentException("O tamanho do item deve ser especificado.");
         }
         this.tamanho = tamanho;
     }
 
-    public void setPreco(Float preco) {
+    public void addPreco(Float preco) {
         Float precoTotal = preco;
         if (preco == null || preco < 0) {
             throw new IllegalArgumentException("O preço do item deve ser um valor positivo.");
@@ -45,14 +45,14 @@ public class ItemBuilder {
         this.preco = preco;
     }
 
-    public void setTipoMassa(TipoMassa tipoMassa) {
+    public void addTipoMassa(TipoMassa tipoMassa) {
         if (this.tipo != Tipo.PIZZA) {
             throw new IllegalArgumentException("O tipo de massa só pode ser definido para itens do tipo PIZZA.");
         }
         this.tipoMassa = tipoMassa;
     }
 
-    public void setTipoPao(TipoPao tipoPao) {
+    public void addTipoPao(TipoPao tipoPao) {
         if (this.tipo != Tipo.SANDUICHE && this.tipo != Tipo.HAMBURGUER) {
             throw new IllegalArgumentException("O tipo de pão só pode ser definido para itens do tipo SANDUICHE ou HAMBURGUER.");
         }

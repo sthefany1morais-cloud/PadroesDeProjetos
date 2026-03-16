@@ -17,7 +17,7 @@ public class PedidoBuilder {
     private Float troco;
     private Float valorTotal;
 
-    public void setCliente(String cliente) {
+    public void addCliente(String cliente) {
         if (cliente == null || cliente.isEmpty()) {
             throw new IllegalArgumentException("O nome do cliente não pode ser vazio.");
         }
@@ -35,29 +35,30 @@ public class PedidoBuilder {
         if (itens == null || itens.isEmpty()) {
             throw new IllegalArgumentException("A lista de itens não pode ser vazia.");
         }
-        for (int i = 0; i < itens.size(); i++) {
-            if (itens.get(i) == null) {
-                throw new IllegalArgumentException("O item na posição " + i + " é nulo.");
-            } itens.add(itens.get(i));
+
+        if (this.itens == null) {
+            this.itens = new java.util.ArrayList<>();
         }
+
+        this.itens.addAll(itens);
     }
 
-    public void setAdicionais(List<String> adicionais) {
+    public void addAdicionais(List<String> adicionais) {
         this.adicionais = adicionais;
     }
 
-    public void setObservacoes(List<String> observacoes) {
+    public void addObservacoes(List<String> observacoes) {
         this.observacoes = observacoes;
     }
 
-    public void setFormaPagamento(FormaPagamento formaPagamento) {
+    public void addFormaPagamento(FormaPagamento formaPagamento) {
         if (formaPagamento == null) {
             throw new IllegalArgumentException("A forma de pagamento deve ser especificada.");
         }
         this.formaPagamento = formaPagamento;
     }
 
-    public void setCupomDesconto(Float cupomDesconto) {
+    public void addCupomDesconto(Float cupomDesconto) {
         if (cupomDesconto < 0) {
             throw new IllegalArgumentException("O valor do cupom de desconto deve ser um valor positivo.");
         }
@@ -65,14 +66,14 @@ public class PedidoBuilder {
         this.valorTotal-= cupomDesconto;
     }
 
-    public void setEntrega(Entrega entrega) {
+    public void addEntrega(Entrega entrega) {
         if (entrega == null) {
             throw new IllegalArgumentException("A forma de entrega deve ser especificada.");
         }
         this.entrega = entrega;
     }
 
-    public void setEnderecoEntrega(String enderecoEntrega) {
+    public void addEnderecoEntrega(String enderecoEntrega) {
         if (this.entrega == Entrega.DELIVERY && (enderecoEntrega == null || enderecoEntrega.isEmpty())) {
             throw new IllegalArgumentException("O endereço de entrega deve ser fornecido para pedidos com entrega.");
         }

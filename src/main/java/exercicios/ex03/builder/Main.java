@@ -18,23 +18,23 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Criando pizza usando ItemBuilder
+        // Criando pizza com ItemBuilder
         ItemBuilder pizzaBuilder = new ItemBuilder();
-        pizzaBuilder.setNome("Pizza Calabresa");
-        pizzaBuilder.setTipo(Tipo.PIZZA);
-        pizzaBuilder.setTamanho(Tamanho.GRANDE);
-        pizzaBuilder.setTipoMassa(TipoMassa.MASSA_RECHEADA);
-        pizzaBuilder.setPreco(40f);
+        pizzaBuilder.addNome("Pizza Calabresa");
+        pizzaBuilder.addTipo(Tipo.PIZZA);
+        pizzaBuilder.addTamanho(Tamanho.GRANDE);
+        pizzaBuilder.addTipoMassa(TipoMassa.MASSA_RECHEADA);
+        pizzaBuilder.addPreco(40f);
 
         Item pizza = pizzaBuilder.build();
 
-        // Criando hamburguer usando ItemBuilder
+        // Criando hambúrguer com ItemBuilder
         ItemBuilder hamburguerBuilder = new ItemBuilder();
-        hamburguerBuilder.setNome("Hamburguer Artesanal");
-        hamburguerBuilder.setTipo(Tipo.HAMBURGUER);
-        hamburguerBuilder.setTamanho(Tamanho.MEDIO);
-        hamburguerBuilder.setTipoPao(TipoPao.BAGUETE);
-        hamburguerBuilder.setPreco(25f);
+        hamburguerBuilder.addNome("Hamburguer Artesanal");
+        hamburguerBuilder.addTipo(Tipo.HAMBURGUER);
+        hamburguerBuilder.addTamanho(Tamanho.MEDIO);
+        hamburguerBuilder.addTipoPao(TipoPao.BAGUETE);
+        hamburguerBuilder.addPreco(25f);
 
         Item hamburguer = hamburguerBuilder.build();
 
@@ -43,18 +43,18 @@ public class Main {
         itens.add(pizza);
         itens.add(hamburguer);
 
-        // Criando pedido usando PedidoBuilder
+        // Criando pedido com PedidoBuilder
         PedidoBuilder pedidoBuilder = new PedidoBuilder();
-        pedidoBuilder.setCliente("João");
+        pedidoBuilder.addCliente("João");
         pedidoBuilder.addItens(itens);
-        pedidoBuilder.setFormaPagamento(FormaPagamento.DINHEIRO);
-        pedidoBuilder.setEntrega(Entrega.DELIVERY);
-        pedidoBuilder.setEnderecoEntrega("Rua A, 123");
+        pedidoBuilder.addFormaPagamento(FormaPagamento.DINHEIRO);
+        pedidoBuilder.addEntrega(Entrega.DELIVERY);
+        pedidoBuilder.addEnderecoEntrega("Rua A, 123");
         pedidoBuilder.adicionarTroco(50f);
-        pedidoBuilder.setCupomDesconto(5f);
+        pedidoBuilder.addCupomDesconto(5f);
 
         Pedido pedido = pedidoBuilder.build();
 
-        System.out.println("Pedido criado com sucesso.");
+        System.out.println("Pedido criado com sucesso");
     }
 }
