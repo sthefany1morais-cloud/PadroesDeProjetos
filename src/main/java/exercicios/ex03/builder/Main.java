@@ -50,7 +50,7 @@ public class Main {
         pedidoBuilder.addFormaPagamento(FormaPagamento.DINHEIRO);
         pedidoBuilder.addEntrega(Entrega.DELIVERY);
         pedidoBuilder.addEnderecoEntrega("Rua A, 123");
-        pedidoBuilder.adicionarTroco(50f);
+        pedidoBuilder.addValorPago(70f);
         pedidoBuilder.addCupomDesconto(5f);
 
         Pedido pedido = pedidoBuilder.build();

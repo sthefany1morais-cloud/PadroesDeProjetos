@@ -16,6 +16,7 @@ public class PedidoBuilder {
     private String enderecoEntrega;
     private Float troco;
     private Float valorTotal;
+    private Float valorPago;
 
     public void addCliente(String cliente) {
         if (cliente == null || cliente.isEmpty()) {
@@ -79,15 +80,6 @@ public class PedidoBuilder {
         this.enderecoEntrega = enderecoEntrega;
     }
 
-    public void adicionarTroco(Float troco) {
-        if (this.formaPagamento == FormaPagamento.DINHEIRO && (troco == null || troco < 0)) {
-            throw new IllegalArgumentException("O valor do troco deve ser um valor positivo para pagamentos em dinheiro.");
-        } else if (this.formaPagamento != FormaPagamento.DINHEIRO && troco != null) {
-            throw new IllegalArgumentException("O valor do troco só deve ser definido para pagamentos em dinheiro.");
-        }
-        this.troco = troco;
-    }
-
     private void calcularValorTotal() {
         float total = 0;
         for (Item item : itens) {
@@ -96,22 +88,25 @@ public class PedidoBuilder {
         this.valorTotal = total;
     }
 
-    public Pedido build(){
-        if (formaPagamento.equals(FormaPagamento.DINHEIRO)){
-            if (troco < 0) {
-                throw new IllegalArgumentException("O valor do troco deve ser um valor positivo para pagamentos em dinheiro.");
-            }
-        } else {
-            if (troco != null) {
-                throw new IllegalArgumentException("O valor do troco só deve ser definido para pagamentos em dinheiro.");
-            }
+    public void addValorPago(Float valorPago) {
+        if (valorPago < 0) {
+            throw new IllegalArgumentException("O valor pago deve ser um valor positivo.");
         }
+        this.valorPago = valorPago;
+    }
+
+    public Pedido build(){
+
         calcularValorTotal();
+
+        if (formaPagamento.equals(FormaPagamento.DINHEIRO) && this.valorPago > this.valorTotal){
+            this.troco = this.valorPago - this.valorTotal;
+        }
 
         if (cupomDesconto != null) {
             valorTotal -= cupomDesconto;
         }
 
-        return new Pedido(cliente, itens, adicionais, observacoes, formaPagamento, cupomDesconto, entrega, enderecoEntrega, troco, valorTotal);
+        return new Pedido(cliente, itens, adicionais, observacoes, formaPagamento, cupomDesconto, entrega, enderecoEntrega, troco, valorTotal, valorPago, null, null);
     }
 }
