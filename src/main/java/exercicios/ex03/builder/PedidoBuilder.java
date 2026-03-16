@@ -2,6 +2,8 @@ package exercicios.ex03.builder;
 
 import exercicios.ex03.builder.enums.Entrega;
 import exercicios.ex03.builder.enums.FormaPagamento;
+import exercicios.ex03.builder.enums.TipoMassa;
+import exercicios.ex03.builder.enums.TipoPao;
 
 import java.util.List;
 
@@ -17,6 +19,8 @@ public class PedidoBuilder {
     private Float troco;
     private Float valorTotal;
     private Float valorPago;
+    private TipoMassa tipoMassa;
+    private TipoPao tipoPao;
 
     public void addCliente(String cliente) {
         if (cliente == null || cliente.isEmpty()) {
@@ -107,6 +111,6 @@ public class PedidoBuilder {
             valorTotal -= cupomDesconto;
         }
 
-        return new Pedido(cliente, itens, adicionais, observacoes, formaPagamento, cupomDesconto, entrega, enderecoEntrega, troco, valorTotal, valorPago, null, null);
+        return new Pedido(cliente, itens, adicionais, observacoes, formaPagamento, cupomDesconto, entrega, enderecoEntrega, troco, valorTotal, valorPago);
     }
 }

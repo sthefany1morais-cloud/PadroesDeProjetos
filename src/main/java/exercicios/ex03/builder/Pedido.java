@@ -17,10 +17,8 @@ public class Pedido {
     private Float troco;
     private Float valorTotal;
     private Float valorPago;
-    private TipoMassa tipoMassa;
-    private TipoPao tipoPao;
 
-    public Pedido(String cliente, List<Item> itens, List<String> adicionais, List<String> observacoes, FormaPagamento formaPagamento, Float cupomDesconto, Entrega entrega, String enderecoEntrega, Float troco, Float valorTotal, Float valorPago, TipoMassa tipoMassa, TipoPao tipoPao) {
+    public Pedido(String cliente, List<Item> itens, List<String> adicionais, List<String> observacoes, FormaPagamento formaPagamento, Float cupomDesconto, Entrega entrega, String enderecoEntrega, Float troco, Float valorTotal, Float valorPago) {
         this.cliente = cliente;
         this.itens = itens;
         this.adicionais = adicionais;
@@ -32,8 +30,6 @@ public class Pedido {
         this.troco = troco;
         this.valorTotal = valorTotal;
         this.valorPago = valorPago;
-        this.tipoMassa = tipoMassa;
-        this.tipoPao = tipoPao;
     }
 
     public void imprimirNotaFiscal() {
