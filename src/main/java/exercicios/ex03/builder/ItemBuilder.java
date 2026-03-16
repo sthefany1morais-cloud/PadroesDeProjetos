@@ -58,4 +58,11 @@ public class ItemBuilder {
         }
         this.tipoPao = tipoPao;
     }
+
+    public Item build() {
+        if (nome == null || tipo == null || tamanho == null || preco == null) {
+            throw new IllegalStateException("Todos os campos obrigatórios devem ser preenchidos para construir o item.");
+        }
+        return new Item(nome, tipo, tamanho, preco, tipoMassa, tipoPao);
+    }
 }

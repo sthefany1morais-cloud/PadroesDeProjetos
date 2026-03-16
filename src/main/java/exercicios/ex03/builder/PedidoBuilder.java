@@ -31,6 +31,17 @@ public class PedidoBuilder {
         this.itens.add(item);
     }
 
+    public void addItens(List<Item> itens) {
+        if (itens == null || itens.isEmpty()) {
+            throw new IllegalArgumentException("A lista de itens não pode ser vazia.");
+        }
+        for (int i = 0; i < itens.size(); i++) {
+            if (itens.get(i) == null) {
+                throw new IllegalArgumentException("O item na posição " + i + " é nulo.");
+            } itens.add(itens.get(i));
+        }
+    }
+
     public void setAdicionais(List<String> adicionais) {
         this.adicionais = adicionais;
     }
@@ -47,7 +58,11 @@ public class PedidoBuilder {
     }
 
     public void setCupomDesconto(Float cupomDesconto) {
+        if (cupomDesconto < 0) {
+            throw new IllegalArgumentException("O valor do cupom de desconto deve ser um valor positivo.");
+        }
         this.cupomDesconto = cupomDesconto;
+        this.valorTotal-= cupomDesconto;
     }
 
     public void setEntrega(Entrega entrega) {
@@ -64,7 +79,7 @@ public class PedidoBuilder {
         this.enderecoEntrega = enderecoEntrega;
     }
 
-    public void setTroco(Float troco) {
+    public void adicionarTroco(Float troco) {
         if (this.formaPagamento == FormaPagamento.DINHEIRO && (troco == null || troco < 0)) {
             throw new IllegalArgumentException("O valor do troco deve ser um valor positivo para pagamentos em dinheiro.");
         } else if (this.formaPagamento != FormaPagamento.DINHEIRO && troco != null) {
@@ -73,7 +88,26 @@ public class PedidoBuilder {
         this.troco = troco;
     }
 
+    private void calcularValorTotal() {
+        float total = 0;
+        for (Item item : itens) {
+            total += item.getPreco();
+        }
+        this.valorTotal = total;
+    }
+
     public Pedido build(){
+        if (formaPagamento.equals(FormaPagamento.DINHEIRO)){
+            if (troco < 0) {
+                throw new IllegalArgumentException("O valor do troco deve ser um valor positivo para pagamentos em dinheiro.");
+            }
+        } else {
+            if (troco != null) {
+                throw new IllegalArgumentException("O valor do troco só deve ser definido para pagamentos em dinheiro.");
+            }
+        }
+
+        calcularValorTotal();
         return new Pedido(cliente, itens, adicionais, observacoes, formaPagamento, cupomDesconto, entrega, enderecoEntrega, troco, valorTotal);
     }
 }
