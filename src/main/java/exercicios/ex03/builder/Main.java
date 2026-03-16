@@ -18,7 +18,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Criando pizza com ItemBuilder
         ItemBuilder pizzaBuilder = new ItemBuilder();
         pizzaBuilder.addNome("Pizza Calabresa");
         pizzaBuilder.addTipo(Tipo.PIZZA);
@@ -28,7 +27,6 @@ public class Main {
 
         Item pizza = pizzaBuilder.build();
 
-        // Criando hambúrguer com ItemBuilder
         ItemBuilder hamburguerBuilder = new ItemBuilder();
         hamburguerBuilder.addNome("Hamburguer Artesanal");
         hamburguerBuilder.addTipo(Tipo.HAMBURGUER);
@@ -38,12 +36,10 @@ public class Main {
 
         Item hamburguer = hamburguerBuilder.build();
 
-        // Lista de itens
         List<Item> itens = new ArrayList<>();
         itens.add(pizza);
         itens.add(hamburguer);
 
-        // Criando pedido com PedidoBuilder
         PedidoBuilder pedidoBuilder = new PedidoBuilder();
         pedidoBuilder.addCliente("João");
         pedidoBuilder.addItens(itens);
