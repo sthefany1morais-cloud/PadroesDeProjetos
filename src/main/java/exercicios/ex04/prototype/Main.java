@@ -23,7 +23,7 @@ public class Main {
                 "POO",
                 "17/03/2026",
                 "A",
-                "Prof. João",
+                "Prof. Miqueias Soares Cardoso",
                 questoes
         );
 
