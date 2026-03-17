@@ -1,7 +1,6 @@
 package exercicios.ex04.prototype.base;
 
 import java.util.List;
-import java.util.PrimitiveIterator;
 import java.util.stream.Collectors;
 
 public class Prova {
