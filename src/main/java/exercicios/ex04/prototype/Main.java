@@ -33,7 +33,7 @@ public class Main {
         Prova provaCopia = provaOriginal.copiar();
         provaCopia.setVersao("B");
 
-        Questao novaQuestao = new Questao("Q2", "Defina padrão de projeto Prototype.", 4.0f);
+        Questao novaQuestao = new Questao("Q2", "Defina padrão de projeto Prototype.", 3.0f);
         provaCopia.substituirQuestao("Q2", novaQuestao);
 
         provaCopia.adicionarQuestao(new Questao("Q4", "O que é encapsulamento?", 2.0f));

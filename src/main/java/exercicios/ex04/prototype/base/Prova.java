@@ -68,8 +68,8 @@ public class Prova {
         boolean questaoEncontrada = false;
         for (int i = 0; i < questoes.size(); i++) {
             if (questoes.get(i).getId().equals(id)) {
-                questoes.set(i, nova);
                 this.valorTotal += nova.getValor() - questoes.get(i).getValor();
+                questoes.set(i, nova);
                 questaoEncontrada = true;
                 break;
             }
@@ -87,8 +87,8 @@ public class Prova {
         boolean questaoEncontrada = false;
         for (int i = 0; i < questoes.size(); i++) {
             if (questoes.get(i).getId().equals(id)) {
-                questoes.remove(i);
                 this.valorTotal -= questoes.get(i).getValor();
+                questoes.remove(i);
                 questaoEncontrada = true;
                 break;
             }
