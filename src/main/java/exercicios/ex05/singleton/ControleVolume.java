@@ -14,25 +14,11 @@ public class ControleVolume {
     }
 
     public void aumentar(int passo){
-        if (passo < 0) {
-            throw new IllegalArgumentException("Passo deve ser um valor positivo.");
-        }
-        int novoVolume = volume + passo;
-        if (novoVolume > 100) {
-            volume = 100;
-        }
-        this.volume = novoVolume;
+        setVolume(this.volume + passo);
     }
 
     public void diminuir(int passo){
-        if (passo < 0) {
-            throw new IllegalArgumentException("Passo deve ser um valor positivo.");
-        }
-        int novoVolume = volume - passo;
-        if (novoVolume < 0) {
-            volume = 0;
-        }
-        this.volume = novoVolume;
+        setVolume(this.volume - passo);
 
     }
 
@@ -42,9 +28,12 @@ public class ControleVolume {
 
     public void setVolume(int novoVolume){
         if (novoVolume < 0) {
-            throw new IllegalArgumentException("Volume deve ser um valor positivo.");
+            volume = 0;
+        } else if (novoVolume > 100) {
+            volume = 100;
+        } else {
+            volume = novoVolume;
         }
-        volume = novoVolume;
     }
 
 }
