@@ -15,16 +15,16 @@ public class Main {
         System.out.println("\n=== Player aumenta volume ===");
         player.aumentarVolume();
 
-        System.out.println("\n=== Estado dos volumes após aumento pelo player ===\n\n");
+        System.out.println("\n=== Estado dos volumes após aumento pelo player ===\n");
 
         player.mostrarVolume();
         alarme.mostrarVolume();
         botao.mostrarVolume();
 
-        System.out.println("\n=== Botão físico aumenta volume ===\n\n");
+        System.out.println("\n=== Botão físico aumenta volume ===\n");
         botao.pressionarMais();
 
-        System.out.println("\n=== Estado dos volumes após aumento pelo botão físico ===\n\n");
+        System.out.println("\n=== Estado dos volumes após aumento pelo botão físico ===\n");
 
         player.mostrarVolume();
         alarme.mostrarVolume();
@@ -34,7 +34,7 @@ public class Main {
         System.out.println("\n=== Player diminui volume ===");
         player.diminuirVolume();
 
-        System.out.println("\n=== Estado dos volumes após diminuição pelo player ===\n\n");
+        System.out.println("\n=== Estado dos volumes após diminuição pelo player ===\n");
 
         player.mostrarVolume();
         alarme.mostrarVolume();
@@ -43,7 +43,7 @@ public class Main {
         System.out.println("\n=== Botão físico diminui volume ===");
         botao.pressionarMenos();
 
-        System.out.println("\n=== Estado dos volumes após diminuição pelo botão físico ===\n\n");
+        System.out.println("\n=== Estado dos volumes após diminuição pelo botão físico ===\n");
 
         player.mostrarVolume();
         alarme.mostrarVolume();
@@ -52,7 +52,7 @@ public class Main {
         System.out.println("\n=== Alarme toca ===");
         alarme.tocarAlarme();
 
-        System.out.println("\n=== Estado dos volumes após alarme tocar ===\n\n");
+        System.out.println("\n=== Estado dos volumes após alarme tocar ===\n");
 
         player.mostrarVolume();
         alarme.mostrarVolume();
@@ -61,7 +61,7 @@ public class Main {
         System.out.println("\n=== Parar alarme ===");
         alarme.pararAlarme();
 
-        System.out.println("\n=== Estado dos volumes após alarme parar ===\n\n");
+        System.out.println("\n=== Estado dos volumes após alarme parar ===\n");
 
         player.mostrarVolume();
         alarme.mostrarVolume();
