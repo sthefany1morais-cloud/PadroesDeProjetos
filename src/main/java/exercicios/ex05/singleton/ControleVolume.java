@@ -23,7 +23,7 @@ public class ControleVolume {
     }
 
     public void mutar() {
-        volume = 0;
+        setVolume(0);
     }
 
     public void setVolume(int novoVolume){
