@@ -14,10 +14,12 @@ public class ControleVolume {
     }
 
     public void aumentar(int passo){
+        passo = Math.abs(passo);
         setVolume(this.volume + passo);
     }
 
     public void diminuir(int passo){
+        passo = Math.abs(passo);
         setVolume(this.volume - passo);
 
     }
