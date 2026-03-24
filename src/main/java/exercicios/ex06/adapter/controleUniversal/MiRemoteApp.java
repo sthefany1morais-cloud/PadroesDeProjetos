@@ -17,10 +17,10 @@ public class MiRemoteApp {
     }
 
     public void aumentarVolume() {
-        dispositivo.aumentarVolume();
+        dispositivo.aumentar();
     }
 
     public void diminuirVolume() {
-        dispositivo.diminuirVolume();
+        dispositivo.diminuir();
     }
 }

@@ -21,12 +21,12 @@ public class LgAdapter implements ControleUniversal {
     }
 
     @Override
-    public void aumentarVolume() {
+    public void aumentar() {
         tvLg.aumentarSom();
     }
 
     @Override
-    public void diminuirVolume() {
+    public void diminuir() {
         tvLg.reduzirSom();
     }
 }

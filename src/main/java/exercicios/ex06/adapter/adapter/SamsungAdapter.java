@@ -21,12 +21,12 @@ public class SamsungAdapter implements ControleUniversal {
     }
 
     @Override
-    public void aumentarVolume() {
+    public void aumentar() {
         tvSamsung.volumeUp();
     }
 
     @Override
-    public void diminuirVolume() {
+    public void diminuir() {
         tvSamsung.volumeDown();
     }
 }

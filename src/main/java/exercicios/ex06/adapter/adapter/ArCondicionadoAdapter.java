@@ -21,12 +21,12 @@ public class ArCondicionadoAdapter implements ControleUniversal {
     }
 
     @Override
-    public void aumentarVolume() {
+    public void aumentar() {
         arCondicionado.aumentarTemperatura();
     }
 
     @Override
-    public void diminuirVolume() {
+    public void diminuir() {
         arCondicionado.reduzirTemperatura();
     }
 }
