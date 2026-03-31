@@ -31,6 +31,14 @@ public class Kit implements ItemLoja {
         return total;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setItens(List<ItemLoja> itens) {
+        this.itens = itens;
+    }
+
     @Override
     public void exibir(String prefixo) {
         System.out.println(prefixo + "+ Kit: " + getNome() + " | Preço Total: R$" + getPreco());

@@ -20,6 +20,14 @@ public class Produto implements ItemLoja {
         return preco;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
     @Override
     public void exibir(String prefixo) {
         System.out.println(prefixo + "- Produto: " + getNome() + " | Preço: R$" + preco);
