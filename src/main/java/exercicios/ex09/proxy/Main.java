@@ -23,6 +23,7 @@ public class Main {
         for (Usuario usuario : usuarios) {
             try {
                 System.out.println("Tentando assistir filme no perfil de Usuário: " + (usuario != null ? usuario.getNome() : "null"));
+                System.out.println("Plano do usuário: " + (usuario != null ? usuario.getPlano() : "null"));
                 filmePremiumProxy.assistir(usuario);
             } catch (IllegalArgumentException e) {
                 System.out.println("Erro: " + e.getMessage());
