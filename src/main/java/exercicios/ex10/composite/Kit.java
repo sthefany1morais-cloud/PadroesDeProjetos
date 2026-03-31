@@ -33,7 +33,7 @@ public class Kit implements ItemLoja {
 
     @Override
     public void exibir(String prefixo) {
-        System.out.println(prefixo + "+ Kit: " + nome + " | Preço Total: R$" + getPreco());
+        System.out.println(prefixo + "+ Kit: " + getNome() + " | Preço Total: R$" + getPreco());
         for (ItemLoja item : itens) {
             item.exibir(prefixo + "  ");
         }
