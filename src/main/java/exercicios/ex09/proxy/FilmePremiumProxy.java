@@ -8,15 +8,15 @@ public class FilmePremiumProxy implements Conteudo{
     }
 
     @Override
-    public void assistir(Usuario usuario) throws IllegalArgumentException {
+    public void assistir(Usuario usuario){
         if (usuario == null) {
-            throw new IllegalArgumentException();
-        }
-        else if (usuario.getPlano() == Plano.PREMIUM) {
+            throw new IllegalArgumentException("O usuário não pode ser nulo.");
+        } else if (usuario.getPlano() == Plano.PREMIUM) {
             filmePremium.assistir(usuario);
+        } else if (usuario.getPlano() == Plano.BASICO) {
+            throw new IllegalArgumentException("Acesso negado. O filme premium está disponível apenas para usuários com plano premium.");
         } else {
-            System.out.println("Acesso negado. O filme premium está disponível apenas para usuários com plano premium.");
+            throw new IllegalArgumentException("Plano desconhecido. Acesso negado.");
         }
     }
-
 }
