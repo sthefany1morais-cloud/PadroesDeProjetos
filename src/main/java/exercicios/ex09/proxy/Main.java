@@ -1,5 +1,6 @@
 package exercicios.ex09.proxy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -11,7 +12,13 @@ public class Main {
         Usuario usuarioJoana = new Usuario("Joana", null);
         Conteudo filmePremiumProxy = new FilmePremiumProxy();
 
-        List<Usuario> usuarios = List.of(usuarioCarlos, usuarioAna, usuarioMarina, usuarioPedro, usuarioJoana);
+        List<Usuario> usuarios = new ArrayList<>();
+        usuarios.add(usuarioCarlos);
+        usuarios.add(usuarioAna);
+        usuarios.add(usuarioMarina);
+        usuarios.add(usuarioPedro);
+        usuarios.add(usuarioJoana);
+        usuarios.add(null);
 
         for (Usuario usuario : usuarios) {
             try {
@@ -21,13 +28,6 @@ public class Main {
                 System.out.println("Erro: " + e.getMessage());
             }
              System.out.println();
-        }
-
-        System.out.println("Tentando assistir filme com usuário nulo:");
-        try {
-            filmePremiumProxy.assistir(null);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Erro: " + e.getMessage());
         }
     }
 }
