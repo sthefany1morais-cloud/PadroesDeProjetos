@@ -7,14 +7,13 @@ public class PagamentoPix implements PagamentoStrategy {
 
     @Override
     public double calcularTotal(double valor) {
-        double valorTotal = descontarPagamento(valor, 10);
-        validarPagamento(valorTotal);
-        return valorTotal;
+        return descontarPagamento(valor, 10);
     }
 
     @Override
     public void pagar(double valor) {
         double valorTotal = calcularTotal(valor);
+        validarPagamento(valorTotal);
         System.out.println("Pagamento realizado com cartão.");
         relatorioPagamento(valorTotal);
     }
