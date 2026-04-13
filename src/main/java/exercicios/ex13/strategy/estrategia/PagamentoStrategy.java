@@ -4,8 +4,11 @@ public interface PagamentoStrategy {
 
     void pagar(double valor);
 
-    void relatorioPagamento();
+    void relatorioPagamento(double valor);
 
-    void validarPagamento() throws RuntimeException;
+    void validarPagamento(double valor) throws RuntimeException;
 
+    double taxarPagamento(double valor, double percentual);
+
+    double descontarPagamento(double valor, double percentual);
 }
