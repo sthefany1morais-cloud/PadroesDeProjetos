@@ -2,6 +2,8 @@ package exercicios.ex13.strategy.estrategia;
 
 public interface PagamentoStrategy {
 
+    double calcularTotal(double valor);
+
     void pagar(double valor);
 
     void relatorioPagamento(double valor);
