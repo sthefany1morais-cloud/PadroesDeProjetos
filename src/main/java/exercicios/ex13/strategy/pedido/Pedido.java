@@ -16,6 +16,6 @@ public class Pedido {
     }
 
     public double calcularTotal(){
-        return pagamento.calcularTotal(valor);
+        return pagamento.calcularTotal(this.valor);
     }
 }
