@@ -6,7 +6,7 @@ public class PagamentoBoleto implements PagamentoStrategy {
 
     @Override
     public double calcularTotal(double valor) {
-        double valorTotal = taxarPagamento(valor, 5);
+        double valorTotal = descontarPagamento(valor, 5) + 2;
         validarPagamento(valorTotal);
         return valorTotal;
     }

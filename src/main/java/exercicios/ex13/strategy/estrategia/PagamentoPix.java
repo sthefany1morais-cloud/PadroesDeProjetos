@@ -7,7 +7,7 @@ public class PagamentoPix implements PagamentoStrategy {
 
     @Override
     public double calcularTotal(double valor) {
-        double valorTotal = descontarPagamento(valor, 5) + 2;
+        double valorTotal = descontarPagamento(valor, 10);
         validarPagamento(valorTotal);
         return valorTotal;
     }
