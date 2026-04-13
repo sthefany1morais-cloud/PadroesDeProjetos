@@ -20,6 +20,7 @@ public class PagamentoBoleto implements PagamentoStrategy {
     @Override
     public void relatorioPagamento(double valor) {
         System.out.println("Taxa aplicada: 5% ");
+        System.out.println("Taxa fixa aplicada: R$ 2,00 ");
         System.out.println("Valor total: R$ " + valor);
     }
 
