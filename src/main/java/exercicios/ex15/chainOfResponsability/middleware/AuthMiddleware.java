@@ -6,7 +6,7 @@ public class AuthMiddleware extends Middleware {
     @Override
     public boolean processar(Requisicao req) {
         if (req.getToken() != null) {
-            System.out.println("Autenticação bem-sucedida para o usuário: " + req.getUsuario().getNome());
+            System.out.println("AUTH: Autenticação bem-sucedida para o usuário: " + req.getUsuario().getNome());
 
             if (proximo != null) {
                 return proximo.processar(req);
@@ -15,7 +15,7 @@ public class AuthMiddleware extends Middleware {
             return true;
         }
         else {
-            System.out.println("AUTH: token ausente.");
+            System.out.println("AUTH: Token inválido → acesso negado");
             return false;
             
         }

@@ -8,7 +8,7 @@ public class PermissaoMiddleware extends Middleware {
     @Override
     public boolean processar(Requisicao req) {
         if (req.getPermissao() == Permissao.ADMIN) {
-            System.out.println("Permissão bem-sucedida para o usuário: " + req.getUsuario().getNome());
+            System.out.println("PERMISSÃO: Permissão bem-sucedida para o usuário: " + req.getUsuario().getNome());
 
             if (proximo != null) {
                 return proximo.processar(req);
@@ -16,7 +16,7 @@ public class PermissaoMiddleware extends Middleware {
 
             return true;
         } else {
-            System.out.println("PERMISSÃO: Acesso negado.");
+            System.out.println("PERMISSÃO: Acesso negado");
             return false;
 
         }

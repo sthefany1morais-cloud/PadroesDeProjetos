@@ -6,7 +6,7 @@ public class ValidacaoMiddleware extends Middleware {
     @Override
     public boolean processar(Requisicao req) {
         if (req.isDadosValidos()) {
-            System.out.println("Validação bem-sucedida para o usuário: " + req.getUsuario().getNome());
+            System.out.println("VALIDAÇÃO: Validação bem-sucedida para o usuário: " + req.getUsuario().getNome());
 
             if (proximo != null) {
                 return proximo.processar(req);
@@ -15,7 +15,7 @@ public class ValidacaoMiddleware extends Middleware {
             return true;
 
         } else {
-            System.out.println("VALIDAÇÃO: Dados inválidos.");
+            System.out.println("VALIDAÇÃO: Dados inválidos");
             return false;
         }
     }
