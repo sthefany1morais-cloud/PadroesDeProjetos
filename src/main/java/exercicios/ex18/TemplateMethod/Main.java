@@ -15,15 +15,10 @@ public class Main {
 
         System.out.println("\n-----------------------------------\n");
 
+        // Criar um processador de vendas e executar o processamento
         ProcessadorArquivo processadorVendas = new ProcessadorVendas("2023-10-01", "Notebook", 2, 5000.0);
         processadorVendas.processarArquivo();
 
 
     }
 }
-//criar um processador de clientes;
-//executar o processamento;
-//criar um processador de produtos;
-//executar o processamento;
-//criar um processador de vendas;
-//executar o processamento.
